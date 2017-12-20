@@ -1,6 +1,6 @@
 # API consumption and testing
 
-Learning how to consume an API and format the data to be useable. Using JSON and HTTParty in order to access data and turn it into a readable format. Also made code reusable, readable and maintainable
+Learning how to consume an API and format the data to be useable. Using JSON and HTTParty in order to access data and turn it into a readable format. Also made code reusable, readable and maintainable using the Service Object Model.
 
 # HTTParty
 https://github.com/jnunemaker/httparty
