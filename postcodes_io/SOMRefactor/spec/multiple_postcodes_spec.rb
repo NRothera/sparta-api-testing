@@ -8,26 +8,26 @@ describe Postcodesio do
       @postcodesio2.get_multiple_postcodes(['sw1v4qh', 'pe84ej'])
     end
 
-    # it 'should be a hash' do
-    #   expect(@code.get_multiple_postcodes(@postcodes_array)).to be_kind_of(Hash)
-    # end
+    it 'should be a hash' do
+      expect(@postcodesio2.get_multiple_postcodes_results_hash).to be_kind_of(Hash)
+    end
+
+    it "status should be 200" do
+      expect(@postcodesio2.get_status).to eql(200)
+    end
     #
-    # it "status should be 200" do
-    #   expect(@code.get_multiple_postcodes(@postcodes_array)['status']).to eql(200)
-    # end
+    it 'should have latitude key value be float' do
+      expect(@postcodesio2.get_latitude).to be_kind_of(Float)
+    end
     #
-    # it 'should have latitude key value be float' do
-    #   expect(@postcodesio['latitude']).to be_kind_of(Float)
-    # end
-    #
-    # it 'should have longitude key value be float' do
-    #   expect(@postcodesio['longitude']).to be_kind_of(Float)
-    # end
-    #
-    # it 'should have array of postcodes' do
-    #   expect(@code.get_multiple_postcodes(@postcodes_array)['result']).to be_kind_of(Array)
-    # end
-    #
+    it 'should have longitude key value be float' do
+      expect(@postcodesio2.get_longitude).to be_kind_of(Float)
+    end
+
+    it 'should have array of postcodes' do
+      expect(@postcodesio2.get_results_array).to be_kind_of(Array)
+    end
+
     it 'should have country key value be England, Wales, Scotland or Ireland' do
       country_array = ['England', "Wales", "Scotland", "Ireland"]
       expect(country_array).to include(@postcodesio2.get_multiple_postcodes_results_hash['country'])
@@ -107,12 +107,21 @@ describe Postcodesio do
       expect(@postcodesio2.get_outcode).to be_kind_of(String)
     end
 
+    it 'should return outcode length between 3-4' do
+      expect(@postcodesio2.get_outcode_length).to be_between(3,4)
+    end
+
     it 'should expect admin_ward to be string' do
       expect(@postcodesio2.get_admin_ward).to be_kind_of(String)
     end
 
+    it 'should have a lnegth between between 5-7' do
+      expect(@postcodesio2.get_postcode_length).to be_between(5,7)
+    end
 
-
+    it "should return incode length of 3" do
+      expect(@postcodesio2.get_incode_length).to eql(3)
+    end
 
 
   end

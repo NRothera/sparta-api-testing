@@ -202,5 +202,9 @@ describe "postcodes" do
     expect(@results_single_postcode['admin_ward']).to be_kind_of(String)
   end
 
+  it "postcode length should be between 7 and 9" do
+    expect(@results_single_postcode['postcode'].length).to be_between(5,8)
+  end
+
 
 end

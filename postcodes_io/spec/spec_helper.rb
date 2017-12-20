@@ -1,5 +1,5 @@
-require 'nokogiri'
-require_relative '../postcodes_httparty'
+require 'rspec'
+require_relative '../lib/postcodes_httparty'
 
 RSpec.configure do |config|
   config.formatter = :documentation

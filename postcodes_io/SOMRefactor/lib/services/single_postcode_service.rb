@@ -102,17 +102,26 @@ class SinglePostcodeService
     get_results_hash['incode']
   end
 
+  def get_incode_length
+    get_incode.length
+  end
+
   def get_outcode
     get_results_hash['outcode']
+  end
+
+  def get_outcode_length
+    get_outcode.length
   end
 
   def get_admin_ward
     get_results_hash['admin_ward']
   end
 
-  def get_postcode
-    get_results_hash['postcode']
+  def get_postcode_length
+    get_results_hash['postcode'].gsub(' ','').length
   end
+
 
 
 end

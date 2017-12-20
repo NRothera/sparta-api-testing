@@ -19,8 +19,24 @@ class MultiplePostcodesService
     @multiple_postcode_data = JSON.parse(self.class.post("/postcodes", body: {"postcodes" => postcodes_array}).body)
   end
 
+  def get_status
+    @multiple_postcode_data['status']
+  end
+
+  def get_results_array
+    @multiple_postcode_data['result']
+  end
+
   def get_multiple_postcodes_results_hash
-    @multiple_postcode_data['result'][0]['result']
+    get_results_array[0]['result']
+  end
+
+  def get_latitude
+    get_multiple_postcodes_results_hash['latitude']
+  end
+
+  def get_longitude
+    get_multiple_postcodes_results_hash['longitude']
   end
 
   def get_eastings
@@ -83,12 +99,24 @@ class MultiplePostcodesService
     get_multiple_postcodes_results_hash['incode']
   end
 
+  def get_incode_length
+    get_incode.length
+  end
+
   def get_outcode
     get_multiple_postcodes_results_hash['outcode']
   end
 
+  def get_outcode_length
+    get_outcode.length
+  end
+
   def get_admin_ward
     get_multiple_postcodes_results_hash['admin_ward']
+  end
+
+  def get_postcode_length
+    get_multiple_postcodes_results_hash['postcode'].gsub(' ','').length
   end
 
 
